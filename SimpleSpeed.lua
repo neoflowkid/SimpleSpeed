@@ -77,7 +77,7 @@ Logo.Parent = Frame
 Logo.BackgroundTransparency = 1
 Logo.Position = UDim2.new(0.35, 0, 0.75, 0)
 Logo.Size = UDim2.new(0.3, 0, 0.1, 0)
-Logo.Image = "https://www.roblox.com/asset/?id=YOUR_ASSET_ID" 
+Logo.Image = "https://www.roblox.com/asset/?id=83745594308180" 
 
 local isActive = false
 local originalSpeed = 16
