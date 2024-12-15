@@ -1,9 +1,7 @@
--- Create the GUI
 local player = game.Players.LocalPlayer
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = player:WaitForChild("PlayerGui")
 
--- Create the draggable frame
 local frame = Instance.new("Frame")
 frame.Size = UDim2.new(0, 300, 0, 200)
 frame.Position = UDim2.new(0.5, -150, 0.5, -100)
@@ -13,7 +11,6 @@ frame.Parent = screenGui
 frame.Active = true
 frame.Draggable = true
 
--- Create the title
 local title = Instance.new("TextLabel")
 title.Size = UDim2.new(0, 300, 0, 50)
 title.Position = UDim2.new(0, 0, 0, 0)
@@ -23,7 +20,6 @@ title.TextSize = 24
 title.BackgroundTransparency = 1
 title.Parent = frame
 
--- Create WalkSpeed input box
 local walkSpeedInput = Instance.new("TextBox")
 walkSpeedInput.Size = UDim2.new(0, 280, 0, 30)
 walkSpeedInput.Position = UDim2.new(0, 10, 0, 60)
@@ -43,7 +39,6 @@ setWalkSpeedButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 setWalkSpeedButton.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
 setWalkSpeedButton.Parent = frame
 
--- Create the minimize/restore button
 local minimizeButton = Instance.new("TextButton")
 minimizeButton.Size = UDim2.new(0, 50, 0, 50)
 minimizeButton.Position = UDim2.new(1, -50, 0, 0)
@@ -53,21 +48,18 @@ minimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 minimizeButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 minimizeButton.Parent = frame
 
--- Minimize the GUI
 local function minimizeGui()
     frame.Size = UDim2.new(0, 300, 0, 50)  -- Only show the title
     walkSpeedInput.Visible = false
     setWalkSpeedButton.Visible = false
 end
 
--- Restore the GUI
 local function restoreGui()
     frame.Size = UDim2.new(0, 300, 0, 200)  -- Show full GUI
     walkSpeedInput.Visible = true
     setWalkSpeedButton.Visible = true
 end
 
--- Toggle between minimize and restore
 minimizeButton.MouseButton1Click:Connect(function()
     if frame.Size == UDim2.new(0, 300, 0, 50) then
         restoreGui()
@@ -76,9 +68,8 @@ minimizeButton.MouseButton1Click:Connect(function()
     end
 end)
 
--- Function to set WalkSpeed
 local function setWalkSpeed()
-    local speed = tonumber(walkSpeedInput.Text) or 16  -- Default speed if input is invalid
+    local speed = tonumber(walkSpeedInput.Text) or 16  
     local humanoid = player.Character:FindFirstChild("Humanoid")
     if humanoid then
         humanoid.WalkSpeed = speed
